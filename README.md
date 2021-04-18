@@ -210,5 +210,5 @@ To capture good driving behavior, I recorded three laps on track two using cente
 1. Car able to navigate correctly on test data
 The car is able to steer correctly through the roads in the simulator for track 1 in autonomous mode
 My project files under below path in workspace folder
-/home/workspace/track1
+/home/workspace/track_test1
 
