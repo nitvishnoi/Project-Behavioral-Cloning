@@ -202,9 +202,8 @@ _________________________________________________________________
 _________________________________________________________________
 
 
-**6.3 Creation of the Training Set & Training Process**
-To capture good driving behavior, I recorded three laps on track two using center lane driving and one for recovery lane driving. I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to take decisions when the road is not visible to the camera. I also augment the dataset by flipping the images and the angles. Also, introduced random brightness and random translation.
-
+**6.3 Training Set & Training Process**
+I used udacity provided training data for this project which was located under /opt/carnd folder.
 
 **Output video for recorded data in Autonomous mode**
 
