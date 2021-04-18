@@ -2,7 +2,7 @@
 
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
-Overview
+1.Overview
 ---
 This repository contains starting files for the Behavioral Cloning Project.
 
@@ -21,7 +21,7 @@ To meet specifications, the project will require submitting five files:
 
 This README file describes how to output the video in the "Details About Files In This Directory" section.
 
-Creating a Great Writeup
+2.Creating a Great Writeup
 ---
 A great writeup should include the [rubric points](https://review.udacity.com/#!/rubrics/432/view) as well as your description of how you addressed each point.  You should include a detailed description of the code used (with line-number references and code snippets where necessary), and links to other supporting documents or external references.  You should include images in your writeup to demonstrate how your code works with examples.  
 
@@ -124,11 +124,90 @@ Will run the video at 48 FPS. The default FPS is 60.
 A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
 
 
-**Implementation:**
+**3.Implementation:****
 
 [![Alt text for your video](examples/run.PNG)]
 
 
+**4. Submission code is usable and readable**
+
+The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works. Further, I have also included the code to plot the mean squared error loss for the training set and the validation set per epoch. It helps us to get a better idea of the scenario and gives us a lot of information on the various parameters to tune to get a much better result.
+
+**5.Model Architecture and Training Strategy**
+
+**5.1 An appropriate model architecture has been employed**
+
+My model consists of a convolution neural network which is implemented with the help of keras in a much easier way. The model is like the NVIDIA model, and contains five Convolutional layers and four Dense layers. The model also contains a Dropout layer, a Flatten layer and one Cropping2D layer. The data is normalized in the model using a Keras lambda layer. The total number of parameters in the proposed model is 348, 219.
+**5.2 Attempts to reduce overfitting in the model**
+
+The model contains dropout layer in order to reduce overfitting. There is a Dropout layer after the five Convolutional Layers to reduce overfitting. The Dropout Layer has a probability of 0.5 to dropout the weights. The model was trained and validated on different data sets to ensure that the model was not overfitting. The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+
+**5.3 Model parameter tuning**
+The model uses an Adam optimizer, so the learning rate is tuned manually. "optimizer=Adam(lr=1.0e-4)" depicts the usage of Adam optimizer with a learning rate of "1.0e-4". The number of epochs is set to 10 and batch_size is set to 32.
+
+**5.4 Appropriate training data**
+Training data was chosen to keep the vehicle driving on the road. I used training data by driving for around three tracks on the road. Nearly 13,000 images including the center, left and right camera images were used to train the model. Various training Data Augmentation techniques were used to augment the training data like random flip, random translate, random brightness and RGB to YUV image conversion just as NVIDIA uses in its model.
 
 
+**Images Captured while running vehicle using Automonous mode simulator**
+
+[![Alt text for your video](examples/1.PNG)]
+
+
+[![Alt text for your video](examples/2.PNG)]
+
+
+**6. Architecture and Training Documentation**
+
+**6.1 Solution Design Approach**
+In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set with train_test_split() function with a relative test size of 0.2. I used generator so that a part of training data images is operated upon at a given time. I used NVIDIA like model with five convolutional layers and four dense layers alongwith flatten, dropout layers. Used training data of size approx. 3766 images to train the model. Also, augmented all of the images in the training data. In the end, after training, when the model is saved, a plot is also depicted to show the training and validation losses. Steering corrections are also introduced along with appropriate camera images i.e. left, right and center camera images. At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
+
+**6.2 Final Model Architecture**
+
+The model architecture is depicted below with the help of table:
+Layer	Output Shape	Param
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+cropping2d_1 (Cropping2D)    (None, 65, 320, 3)        0         
+_________________________________________________________________
+lambda_1 (Lambda)            (None, 65, 320, 3)        0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 31, 158, 24)       1824      
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 14, 77, 36)        21636     
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 5, 37, 48)         43248     
+_________________________________________________________________
+conv2d_4 (Conv2D)            (None, 3, 35, 64)         27712     
+_________________________________________________________________
+conv2d_5 (Conv2D)            (None, 1, 33, 64)         36928     
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 1, 33, 64)         0         
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 2112)              0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 100)               211300    
+_________________________________________________________________
+dense_2 (Dense)              (None, 50)                5050      
+_________________________________________________________________
+dense_3 (Dense)              (None, 10)                510       
+_________________________________________________________________
+dense_4 (Dense)              (None, 1)                 11        
+=================================================================
+**Total params: 348,219
+Trainable params: 348,219
+Non-trainable params: 0**
+_________________________________________________________________
+
+
+**6.3 Creation of the Training Set & Training Process**
+To capture good driving behavior, I recorded three laps on track two using center lane driving and one for recovery lane driving. I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to take decisions when the road is not visible to the camera. I also augment the dataset by flipping the images and the angles. Also, introduced random brightness and random translation.
+
+
+**Simulation**
+1. Car able to navigate correctly on test data
+The car is able to steer correctly through the roads in the simulator for track 1 in autonomous mode
+My project files under below path in workspace folder
+/home/workspace/track1
 
