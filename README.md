@@ -206,6 +206,12 @@ _________________________________________________________________
 To capture good driving behavior, I recorded three laps on track two using center lane driving and one for recovery lane driving. I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to take decisions when the road is not visible to the camera. I also augment the dataset by flipping the images and the angles. Also, introduced random brightness and random translation.
 
 
+**Output video for recorded data in Autonomous mode**
+
+[![Alt text for your video](doc/output-video.mp4)]
+
+
+
 **Simulation**
 1. Car able to navigate correctly on test data
 The car is able to steer correctly through the roads in the simulator for track 1 in autonomous mode
