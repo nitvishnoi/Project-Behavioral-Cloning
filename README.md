@@ -208,7 +208,7 @@ To capture good driving behavior, I recorded three laps on track two using cente
 
 **Output video for recorded data in Autonomous mode**
 
-[![Alt text for your video](doc/output-video.mp4)]
+[![Alt text for your video](doc/1.PNG)](https://www.youtube.com/watch?v=7bh60pQa0d4)
 
 
 
