@@ -203,7 +203,7 @@ _________________________________________________________________
 
 
 **6.3 Training Set & Training Process**
-I used udacity provided training data for this project which was located under /opt/carnd folder.
+I used training data for this project which was located under /opt/carnd_p3/data folder.
 
 **Output video for recorded data in Autonomous mode**
 
